@@ -10,17 +10,15 @@ const ProtectedRoute = ({ children }) => {
 
     useEffect(() => {
         if (!user) {
-            // Redirige l'utilisateur vers la page de connexion s'il n'est pas authentifié
             router.push("/login");
         }
     }, [user, router]);
 
     if (!user) {
-        // Ne rien afficher tant que la redirection n'est pas effectuée
-        return null;
+        return null; // Ne rien afficher pendant la redirection
     }
 
-    return children;
+    return children; // Affiche les enfants si l'utilisateur est connecté
 };
 
 export default ProtectedRoute;

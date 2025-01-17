@@ -44,9 +44,9 @@ const Dashboard = () => {
         <ProtectedRoute>
             <h1 className="text-2xl font-bold mb-4">Mangas populaires</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {mangas.map((manga) => (
+                {mangas.map((manga, index) => (
                     <div
-                        key={manga.mal_id}
+                        key={`${manga.mal_id}-${index}`}
                         className="bg-white p-4 rounded shadow-md hover:shadow-lg transition"
                     >
                         <img

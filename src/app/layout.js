@@ -1,5 +1,6 @@
 import MainLayout from "./components/MainLayout";
 import { AuthProvider } from "../../utils/AuthContext";
+import './globals.css';
 
 export const metadata = {
     title: "Mangathèque",

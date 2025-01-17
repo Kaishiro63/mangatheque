@@ -5,12 +5,12 @@ const Sidebar = () => {
         <div className="w-64 h-screen bg-gray-800 text-white fixed">
             <div className="p-4 text-center">
                 <img
-                    src="/default-avatar.png"
+                    src="../assets/default-avatar.png"
                     alt="Profile"
                     className="w-16 h-16 rounded-full mx-auto mb-2"
                 />
                 <p className="text-lg font-bold">Mon Profil</p>
-                <Link href="/settings" className="text-sm text-gray-400">
+                <Link href="/profile" className="text-sm text-gray-400">
                     Modifier
                 </Link>
             </div>

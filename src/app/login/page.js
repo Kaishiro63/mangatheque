@@ -1,21 +1,23 @@
 'use client'
 
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '../../../utils/AuthContext';  // Importer le hook useAuth
 import API from '../../../utils/axios';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { login } = useAuth();  // Utiliser useAuth pour récupérer la fonction login
     const router = useRouter();
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
             const res = await API.post('/auth/login', { email, password });
-            // Stocker le token dans le localStorage (ou cookie)
-            localStorage.setItem('token', res.data.token);
-            router.push('/dashboard');
+            // Appeler la fonction login de AuthContext pour stocker l'utilisateur et le token
+            login({ token: res.data.token, user: res.data.user }); // Passer également les informations de l'utilisateur
+            router.push('/'); // Redirection après connexion
         } catch (err) {
             console.error('Erreur de connexion :', err.message);
         }
